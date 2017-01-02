@@ -1,0 +1,40 @@
+#include <stdio.h>
+void main( void ){
+	double	val1,val2,result;
+	char	oper = '\0';
+	
+	val1 = val2 = 0;
+	
+	printf("整数を入力してください。\n");
+	scanf( "%d", &val1);
+	
+	// 初回計算以降はここから
+	while(1){
+		printf("演算子を入力してください（+,-,*,/）。\n");
+		scanf( "%c", &oper );
+		scanf( "%c" );
+		
+		if ( oper != '+' && oper != '-' && oper != '*' && oper != '/' ) {
+			printf("不正。\n");
+			continue;
+		}
+
+		printf("整数を入力してください。\n");
+		scanf( "%d", &val2 );
+	
+		
+		if ( oper == '+' ){
+			result = val1 + val2;
+		} else if( oper == '-' ){
+			result = val1 - val2;
+		} else if( oper == '*' ){
+			result = val1 * val2;
+		} else if( oper == '/' ){
+			result = val1 / val2;
+		}
+		printf("結果：\n%d\n\n", result);
+		
+		val1 = result;
+	}
+	return;
+}
